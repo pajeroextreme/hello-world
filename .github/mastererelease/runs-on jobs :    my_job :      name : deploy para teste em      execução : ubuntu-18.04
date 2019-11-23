@@ -1,0 +1,103 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run a one-line script
+      run: echo Hello, world!
+    - name: Run a multi-line script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
+        runs-on
+jobs :
+   my_job :
+     name : deploy para teste em 
+
+    - Nome : Nó Setup 
+  usos : acções / setup-nó @ v1 
+  com :
+     nó-versão : ' 10.x '
+     - nome : Instalar Dependências 
+  run : npm install
+  Para ajudar você a começar, este guia mostra alguns exemplos básicos. Para obter a documentação completa das Ações do GitHub sobre fluxos de trabalho, consulte " Configurando fluxos de trabalho ".
+
+Customizando quando as execuções do fluxo de trabalho são acionadas
+Defina seu fluxo de trabalho para execução em eventos push nas ramificações mastererelease/*
+
+on :
+   push :
+     ramos :
+    - master 
+    - release / *
+Defina seu fluxo de trabalho para executar em pull_requesteventos direcionados à masterramificação
+
+em :
+   pull_request :
+     ramos :
+    - mestre
+Defina seu fluxo de trabalho para ser executado todos os dias da semana, de segunda a sexta-feira às 2:00 UTC
+
+on :
+   horário :
+  - cron : " 0 2 * * 1-5 "
+Para mais informações, consulte " Eventos que acionam fluxos de trabalho ".
+
+Executando seus trabalhos em diferentes sistemas operacionais
+O GitHub Actions fornece corredores hospedados para Linux, Windows e macOS.
+
+Para definir o sistema operacional para o seu trabalho, especifique o sistema operacional usando runs-on:
+
+jobs :
+   my_job :
+     name : deploy para teste em 
+    execução : ubuntu-18.04
+Os tipos de máquinas virtuais disponíveis são:
+
+ubuntu-latest, ubuntu-18.04ouubuntu-16.04
+windows-latest, windows-2019ouwindows-2016
+macOS-latest ou macOS-10.14
+Para obter mais informações, consulte " Ambientes virtuais para ações do GitHub ".
+
+Usando uma ação
+Ações são unidades de código reutilizáveis ​​que podem ser criadas e distribuídas por qualquer pessoa no GitHub. Você pode encontrar uma variedade de ações no GitHub Marketplace e também no repositório oficial de ações .
+
+Para usar uma ação, você deve especificar o repositório que contém a ação. Também recomendamos que você especifique uma tag Git para garantir que você esteja usando uma versão lançada da ação.
+
+- Nome : Nó Setup 
+  usos : acções / setup-nó @ v1 
+  com :
+     nó-versão : ' 10.x '
+Para obter mais informações, consulte " Sintaxe do fluxo de trabalho para ações do GitHub ".
+
+Executando um Comando
+Você pode executar comandos na máquina virtual da tarefa.
+
+- nome : Instalar Dependências 
+  run : npm install
+Para obter mais informações, consulte " Sintaxe do fluxo de trabalho para ações do GitHub ".
+
+Executando um Trabalho em uma Matriz de Sistemas Operacionais e Versões de Tempo de Execução
+Você pode executar automaticamente uma tarefa em um conjunto de valores diferentes, como versões diferentes de bibliotecas de códigos ou sistemas operacionais.
+
+Por exemplo, este trabalho usa uma estratégia de matriz para executar 3 versões do Node e 3 sistemas operacionais:
+
+jobs :
+   test :
+     name : Teste no nó $ {{matrix.node_version}} e $ {{matrix.os}} são 
+    executados : $ {{matrix.os}} 
+    estratégia :
+       matrix :
+         node_version : ['8', ' 10 ',' 12 '] 
+        os : [ubuntu-latest, windows-latest, macOS-latest]
+
+    etapas :
+    - usos : actions / checkout @ v1 
+    - nome : use Node.js. $ {{matrix.node_version}}                                                                                                                       
+Para obter mais informações, consulte " Contextos e sintaxe de expressão para ações do GitHub ".   
